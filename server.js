@@ -1,15 +1,18 @@
 var log = require('./core/log/')(module);
-var app = require('./app/');
+var mongooseUtil = require('./core/mongoose/');
 
 var server = function (done) {
-  app.init(function (err) {
-    if (done) {
-      if (err) {
-        return done(err);
+  mongooseUtil.init(function () {
+    var app = require('./app/');
+    app.init(function (err) {
+      if (done) {
+        if (err) {
+          return done(err);
+        }
+        return done(null, app);
       }
-      return done(null, app);
-    }
-  })
+    });
+  });
 };
 
 if (require.main === module) {

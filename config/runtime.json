@@ -1,0 +1,6 @@
+{
+  "cron": {
+    "enabled": true,
+    "dailyTime": "*/15 * * * * *"
+  }
+}

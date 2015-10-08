@@ -4,10 +4,12 @@ var express = require('express');
 var app = express();
 
 var log = require('../core/log/')(module);
+var cronUtil = require('../cron/');
 var expressUtil = require('../core/express/');
 
 exports.init = function (cb) {
   async.seq(
+    cronUtil.init.bind(null),
     expressUtil.init.bind(null, app),
     app.listen.bind(app, config.port)
   )(function () {
