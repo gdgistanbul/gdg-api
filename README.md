@@ -1,5 +1,7 @@
 # gdg-api
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gdgistanbul/gdg-api.svg)](https://greenkeeper.io/)
+
 License
 =======
 
